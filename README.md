@@ -22,4 +22,4 @@ download into target (no download subdirectory)
 ```
 silent download, no output
 
-![be a good cat](https://raw.github.com/kessler/static/master/maxmind-download.jpg
+![be a good cat](https://raw.githubusercontent.com/kessler/static/master/maxmind-download.png)
