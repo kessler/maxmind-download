@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var argv = require('yargs').argv
 var async = require('async')
 var fs = require('fs')
