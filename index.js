@@ -23,12 +23,13 @@ var state = {}
 var canvas = new Canvas(50, 50)
 var ctx = canvas.getContext('2d')
 ctx.resetState()
+var extension = '.mmdb.gz'
 
 for (var source in sources) {
 	var url = sources[source]
 	log('adding %s', url)
 	state[source] = { percent: 0 }
-	work.push(download(source, url, path.join(target, source + '.dat.gz')))
+	work.push(download(source, url, path.join(target, source + extension)))
 }
 
 async.parallel(work, function (err) {
@@ -65,7 +66,7 @@ function draw() {
 			ctx.fillStyle = 'blue'
 			ctx.fillRect(1, y, sourceState.percent, 1)
 			ctx.fillStyle = 'white';
-  			ctx.fillText(source + '.dat.gz (' + sourceState.percent + '%)', 1, y);
+  			ctx.fillText(source + extension + ' (' + sourceState.percent + '%)', 1, y);
 			y += 2
 		}
 

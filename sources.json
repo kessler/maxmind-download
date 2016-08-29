@@ -1,8 +1,4 @@
 {
-	"countries": "http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz",
-	"countriesIPv6": "http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz",
-	"cities": "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz",
-	"citiesIPv6": "http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz",
-	"asn": "http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz",
-	"asnIPv6": "http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNumv6.dat.gz"
+	"countries": "http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz",
+	"cities": "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz"
 }

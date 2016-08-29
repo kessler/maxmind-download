@@ -1,5 +1,7 @@
 # maxmind-download
 download stuff found in sources.json and extract them using shell (gunzip)
+this tool is set to download geoip2 mmdb databases.
+for older geoip databases use version xxx
 
 ## Install
 ```

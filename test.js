@@ -9,10 +9,15 @@ describe('maxmind-download', function () {
 	})
 
 	it('use', function () {
-		maxmind.init(path.resolve(__dirname, 'download', 'countries.dat'))
-		var country = maxmind.getCountry('66.6.44.4');
-		assert(country)
-		assert.strictEqual(country.code, 'US')
+		var lookup = maxmind.open(path.resolve(__dirname, 'download', 'countries.mmdb'))
+
+		var ipv4Country = lookup.get('66.6.44.4')
+		assert(ipv4Country)
+		assert.strictEqual(ipv4Country.country.iso_code, 'US')
+
+		var ipv6Country = lookup.get('2001:4860:0:1001::3004:ef68')
+		assert(ipv6Country)
+		assert.strictEqual(ipv6Country.country.iso_code, 'US')
 	})
 
 	//TODO add delete in beforeEach / before
