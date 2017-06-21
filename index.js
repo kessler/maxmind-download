@@ -7,7 +7,7 @@ var request = require('request')
 var requestProgress = require('request-progress')
 var Canvas = require('term-canvas')
 var mkdirp = require('mkdirp')
-var cp = require('child_process')
+var zlib = require('zlib')
 
 var target = argv.target || path.join(process.cwd(), 'download')
 
@@ -24,12 +24,13 @@ var canvas = new Canvas(50, 50)
 var ctx = canvas.getContext('2d')
 ctx.resetState()
 var extension = '.mmdb.gz'
+var targetExtension = '.mmdb'
 
 for (var source in sources) {
 	var url = sources[source]
 	log('adding %s', url)
 	state[source] = { percent: 0 }
-	work.push(download(source, url, path.join(target, source + extension)))
+	work.push(download(source, url, path.join(target, source + targetExtension)))
 }
 
 async.parallel(work, function (err) {
@@ -50,10 +51,10 @@ function download(source, url, target) {
 			state[source].percent = 100
 		})
 
-		stream.pipe(fs.createWriteStream(target)).on('finish', function () {
-			cp.execFile('gunzip', [target])
-			callback()
-		})
+		stream
+			.pipe(zlib.createGunzip())
+			.pipe(fs.createWriteStream(target))
+			.on('finish', callback)
 	}
 }
 

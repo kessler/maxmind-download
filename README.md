@@ -1,5 +1,5 @@
 # maxmind-download
-download stuff found in sources.json and extract them using shell (gunzip)
+download stuff found in sources.json and extract them.
 this tool is set to download geolite2 mmdb databases.
 for older geolite databases use [version 1.x.x](https://github.com/kessler/maxmind-download/tree/v1.0.1)
 
